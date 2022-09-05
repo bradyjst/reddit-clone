@@ -1,19 +1,9 @@
-html {
-	background-color: grey;
-}
-
+html,
 body {
-	margin: 0;
+	background: grey;
+	color: #6f6f6f;
 }
 
-.row {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-
-aside {
-	display: flex;
-	padding: 0;
+p {
 	margin: 0;
 }

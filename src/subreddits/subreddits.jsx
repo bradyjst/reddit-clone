@@ -1,34 +1,53 @@
-import React from "react";
-import "./subreddits.css";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Card from '../card/card';
+import { fetchSubreddits, selectSubreddits } from '../store/subredditSlice';
+import './subreddits.css';
+import {
+  setSelectedSubreddit,
+  selectSelectedSubreddit,
+} from '../store/redditSlice';
 
 const Subreddits = () => {
-    return (
-        <div className="subreddits-container">
-            <div className="top-communities">
-            <h1>
-                Hi!
-            </h1>
-            </div>
-            
-            <div className="premium">
-            <h1>
-                Hi!
-            </h1>
-            </div>
+  const dispatch = useDispatch();
+  const subreddits = useSelector(selectSubreddits);
+  const selectedSubreddit = useSelector(selectSelectedSubreddit);
 
-            <div className="home-page">
-            <h1>
-                Hi!
-            </h1>
-            </div>
-            
-            <div className="directory">
-            <h1>
-                Hi!
-            </h1>
-            </div>
-        </div>
-    )
-}
+  useEffect(() => {
+    dispatch(fetchSubreddits());
+  }, [dispatch]);
+
+  return (
+    <Card className="subreddit-card">
+      <h2>Subreddits</h2>
+      <ul className="subreddits-list">
+        {subreddits.map((subreddit) => (
+          <li
+            key={subreddit.id}
+            className={`${
+              selectedSubreddit === subreddit.url && `selected-subreddit`
+            }`}
+          >
+            <button
+              type="button"
+              onClick={() => dispatch(setSelectedSubreddit(subreddit.url))}
+            >
+              <img
+                src={
+                  subreddit.icon_img ||
+                  `https://api.adorable.io/avatars/25/${subreddit.display_name}`
+                }
+                alt={`${subreddit.display_name}`}
+                className="subreddit-icon"
+                style={{ border: `3px solid ${subreddit.primary_color}` }}
+              />
+              {subreddit.display_name}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </Card>
+  );
+};
 
 export default Subreddits;

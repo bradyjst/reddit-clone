@@ -1,58 +1,47 @@
-.subreddits-container {
-	background-color: chartreuse;
-	width: 25vw;
-	height: 100vh;
-	align-items: center;
-	justify-content: center;
-	padding-left: 20px;
-	margin-left: 20px;
-	border-radius: 10px;
+.subreddit-card {
+	padding-right: 16px;
+	margin-right: 12rem;
 }
 
-.top-communities {
-	background-color: aquamarine;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 20vw;
-	height: 30vh;
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
+.subreddit-card h2 {
+	margin-top: 0;
+	color: #444;
 }
 
-.premium {
-	background-color: bisque;
+.subreddit-card button {
+	background: none;
+	border: none;
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	width: 20vw;
-	height: 25vh;
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
+	color: #6f6f6f;
+	font-weight: 600;
+	cursor: pointer;
+	width: 100%;
+	padding: 16px;
+	border-radius: 4px;
 }
 
-.home-page {
-	background-color: coral;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 20vw;
-	height: 10vh;
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
+.selected-subreddit button {
+	color: #3d5af1 !important;
 }
 
-.directory {
-	background-color: crimson;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 20vw;
-	height: 25vh;
-	margin-top: 10px;
-	margin-left: auto;
-	margin-right: auto;
+.selected-subreddit {
+	border-left: 5px solid #3d5af1;
+	background: #3d5af140;
+}
+
+.subreddit-card button:hover {
+	background: #0000000f;
+}
+
+.subreddits-list {
+	list-style: none;
+	padding: 0;
+}
+
+.subreddit-icon {
+	height: 25px;
+	width: 25px;
+	border-radius: 50%;
+	margin-right: 4px;
 }
